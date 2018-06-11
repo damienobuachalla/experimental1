@@ -1,0 +1,63 @@
+!================================================================================================
+!================================================================================================
+!===
+!=== Delivery Direct - 2951 - Configuration Template - v2.2.1
+!===
+!=== Primary CPE
+!===
+!=== Notes on template:
+!===
+!=== 1. All command syntax is listed in normal text.
+!=== 2. All tokenised variables are listed between braces.
+!=== 3. Each variables contains the owner and variable description; the variable
+!=== owner is captured between square brackets [] and the variable description
+!=== between regular brackets as follows: {[variable-owner]-(variable-description)}
+!===
+!=== {[VARIABLE-OWNER]-(VARIABLE-DESCRIPTION)}
+!===
+!=== e.g. hostname {[TR]-(CPE-HOSTNAME)}
+!
+!================================================================================================
+!================================================================================================
+!
+!================================================================================================
+!================================================================================================
+!===
+!=== Template version control:
+!===
+!=== Live version: v2.2.1
+!===
+!===
+!=== Version	Release Notes:								Date
+!===
+!=== v2.0 	First Draft post Network Design testing, released to GPSS.		Draft
+!=== v2.1 	Updated post GPSS testing. Key items highlighted below:
+!===
+!===		bgp advertise-best-external - removed (Cisco bug identified)
+!===
+!=== v2.2 	Updated post GPSS BETA test phase. Key items highlighted below:		16/6/2014
+!===
+!===		Add "neighbor  advertisement-interval 0" to EBGP peers on
+!===		WAN and Client LAN to improve convergence times for convergence
+!===        	event - reinsertion of ICRL.
+!===
+!=== v2.2.1 	Updated Northbound egress shapers to add 4 and 6 Mbps support.		12/2/2015
+!===
+!================================================================================================
+!================================================================================================
+!
+!
+!
+version 15.2
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+service sequence-numbers
+!
+hostname {[TR]-(CPE-HOSTNAME)}
+!
+!
+!
